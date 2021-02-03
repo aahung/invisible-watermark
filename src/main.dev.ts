@@ -11,10 +11,11 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import path from 'path';
-import { app, BrowserWindow, shell } from 'electron';
+import { app, BrowserWindow, dialog, ipcMain, shell } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
+import dw from 'digital-watermarking';
 
 export default class AppUpdater {
   constructor() {
@@ -129,4 +130,33 @@ app.on('activate', () => {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) createWindow();
+});
+
+ipcMain.on('openSelectDirectoryDialog', async (event) => {
+  if (mainWindow) {
+    const directory = await dialog.showOpenDialog(mainWindow, {
+      properties: ['openDirectory'],
+    });
+    event.reply('selectDirectory', directory);
+  }
+});
+
+ipcMain.on('openSelectFilesDialog', async (event) => {
+  if (mainWindow) {
+    const images = await dialog.showOpenDialog(mainWindow, {
+      properties: ['multiSelections'],
+    });
+    event.reply('selectImages', images);
+  }
+});
+
+ipcMain.on('addWatermark', async (event, { images, qqList, directory }) => {
+  const outputImages = [];
+  for (const image of images) {
+    const fileName = path.basename(image);
+    const outputImage = path.join(directory, fileName);
+    await dw.transformImageWithText(image, qqList.join(', '), 1.1, outputImage);
+    outputImages.push(outputImage);
+  }
+  event.reply('watermark-added', outputImages);
 });
