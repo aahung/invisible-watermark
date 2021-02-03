@@ -35,7 +35,7 @@ const QQList: React.FC<{
   onSelectQQList: (qqList: string[]) => void;
 }> = ({ onSelectQQList }) => {
   const [qqList, setQQList] = useState<string[]>(
-    JSON.parse(localStorage['qq-list'])
+    JSON.parse(localStorage['qq-list'] || '[]')
   );
 
   const [selects, setSelects] = useState<{ [key: string]: boolean }>({});
