@@ -144,7 +144,8 @@ ipcMain.on('openSelectDirectoryDialog', async (event) => {
 ipcMain.on('openSelectFilesDialog', async (event) => {
   if (mainWindow) {
     const images = await dialog.showOpenDialog(mainWindow, {
-      properties: ['multiSelections'],
+      properties: ['multiSelections', 'openFile'],
+      filters: [{ name: 'Images', extensions: ['png', 'jpg', 'jpeg'] }],
     });
     event.reply('selectImages', images);
   }
