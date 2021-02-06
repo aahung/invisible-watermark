@@ -38,7 +38,8 @@
       "index.html",
       "main.prod.js",
       "main.prod.js.map",
-      "package.json"
+      "package.json",
+      "opencv.js"
     ],
     "afterSign": ".erb/scripts/Notarize.js",
     "mac": {
@@ -292,10 +293,5 @@
     "baseBranches": [
       "next"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
