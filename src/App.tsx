@@ -7,9 +7,16 @@ import QQList from './QQList';
 import ImagePicker from './ImagePicker';
 
 const Hello = () => {
-  const [directory, setDirectory] = useState<string>();
+  const [directory, setDirectory] = useState<string>(
+    localStorage['output-dir'] || null
+  );
   const [qqList, setQQList] = useState<string[]>(null);
   const [images, setImages] = useState<string[]>(null);
+
+  // save output-dir
+  useEffect(() => {
+    localStorage['output-dir'] = directory;
+  }, [directory]);
 
   useEffect(() => {
     const handler = (_, arg: Electron.OpenDialogReturnValue) => {

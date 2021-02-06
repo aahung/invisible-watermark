@@ -1991,11 +1991,6 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.19.5.tgz#9be3946136e818597c71c62d04240d0602c645d4"
   integrity sha512-Wgdl27uw/jUYUFyajUGKSjDNGxmJrZi9sjeG6UJImgUtKbJoO9aldx+1XODN1EpNDX9DirvbvHHmTsNlb8GwMA==
 
-"@types/node@^14.0.12":
-  version "14.14.22"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.22.tgz#0d29f382472c4ccf3bd96ff0ce47daf5b7b84b18"
-  integrity sha512-g+f/qj/cNcqKkc3tFqlXOYjrmZA+jNBiDzbP3kH+B+otKFqAdPgVTGP1IeKRdMml/aE69as5S4FqtxAbl+LaMw==
-
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
@@ -4540,15 +4535,6 @@ diffie-hellman@^5.0.0:
     bn.js "^4.1.0"
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
-
-digital-watermarking@^1.1.12:
-  version "1.1.12"
-  resolved "https://registry.yarnpkg.com/digital-watermarking/-/digital-watermarking-1.1.12.tgz#c685d0191f5c5508c53305de6c64eff8c39b2ee8"
-  integrity sha512-2DYag+2Mvp3QFdu45BWqHWsgOcqD/NqNqhT8F1Kf2JxCOZhXqmGjPlgQiFJOdHWzF1nnFSE4eAgbcKGYzD6FMA==
-  dependencies:
-    "@types/node" "^14.0.12"
-    jimp "^0.12.1"
-    require-vm "^1.0.8"
 
 dir-glob@^3.0.1:
   version "3.0.1"

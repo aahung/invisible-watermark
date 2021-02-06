@@ -15,7 +15,7 @@ import { app, BrowserWindow, dialog, ipcMain, shell } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
-import dw from 'digital-watermarking';
+import dw from './dw.js';
 
 export default class AppUpdater {
   constructor() {
